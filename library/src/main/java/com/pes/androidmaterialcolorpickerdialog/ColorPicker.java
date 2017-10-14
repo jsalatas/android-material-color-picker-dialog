@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.text.InputFilter;
 import android.view.KeyEvent;
@@ -182,7 +184,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
                     }
                 });
 
-        final Button okColor = (Button) findViewById(R.id.okColorButton);
+        final TextView okColor = (TextView) findViewById(R.id.okColorButton);
         okColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -318,4 +320,14 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     public int getColor() {
         return withAlpha ? Color.argb(alpha, red, green, blue) : Color.rgb(red, green, blue);
     }
+
+    public void setBackgroundDrawable(Drawable drawable) {
+        findViewById(R.id.colorViewBackground).setBackground(drawable);
+    }
+
+    public void setButtonColor(@ColorInt int color) {
+        TextView t = (TextView) findViewById(R.id.okColorButton);
+        t.setTextColor(color);
+    }
+
 }
