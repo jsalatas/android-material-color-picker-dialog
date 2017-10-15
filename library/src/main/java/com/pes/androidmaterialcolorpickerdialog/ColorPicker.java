@@ -128,9 +128,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-        }
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.materialcolorpicker__layout_color_picker);
 
@@ -165,6 +163,12 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
                 : formatColorValues(red, green, blue)
         );
 
+        hexCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hexCode.setCursorVisible(true);
+            }
+        });
         hexCode.setOnEditorActionListener(
                 new EditText.OnEditorActionListener() {
                     @Override
@@ -177,7 +181,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
                             InputMethodManager imm = (InputMethodManager) activity
                                     .getSystemService(Context.INPUT_METHOD_SERVICE);
                             imm.hideSoftInputFromWindow(hexCode.getWindowToken(), 0);
-
+                            hexCode.setCursorVisible(false);
                             return true;
                         }
                         return false;
@@ -253,6 +257,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         colorView.setBackgroundColor(getColor());
 
         //Setting the inputText hex color
+        hexCode.setCursorVisible(false);
         hexCode.setText(withAlpha
                 ? formatColorValues(alpha, red, green, blue)
                 : formatColorValues(red, green, blue)
@@ -329,5 +334,4 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         TextView t = (TextView) findViewById(R.id.okColorButton);
         t.setTextColor(color);
     }
-
 }
