@@ -4,6 +4,6 @@
     <string name="materialcolorpicker__descLib">Material Color Picker Dialog</string>
     <string name="materialcolorpicker__errHex">Hex Code Format incorrect</string>
     <string name="materialcolorpicker__inputColor">Color: </string>
-    <string name="materialcolorpicker__btnSelectColor">Select</string>
+    <string name="materialcolorpicker__btnSelectColor">OK</string>
     <string name="materialcolorpicker__hash" translatable="false">#</string>
 </resources>
