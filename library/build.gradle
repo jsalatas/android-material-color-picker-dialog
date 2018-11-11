@@ -4,14 +4,13 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    compileSdkVersion 27
     resourcePrefix "materialcolorpicker__"
 
     defaultConfig {
 
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 9
         versionName "1.2.1"
     }
@@ -65,9 +64,9 @@ install {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
 }
 
 
